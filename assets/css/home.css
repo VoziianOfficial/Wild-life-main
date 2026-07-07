@@ -979,9 +979,14 @@ section[aria-labelledby="situationsTitle"] .section-heading {
 }
 
 .popular-wildlife-services__head {
-  max-width: 900px;
+  max-width: 1240px;
   margin: 0 auto 54px;
   text-align: center;
+}
+
+.popular-wildlife-services__head h2 {
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
 .popular-wildlife-services__kicker {
@@ -1239,3 +1244,4 @@ section[aria-labelledby="situationsTitle"] .section-heading {
     height: 40px;
   }
 }
+
