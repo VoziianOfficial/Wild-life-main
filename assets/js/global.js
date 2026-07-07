@@ -39,7 +39,7 @@
       <header class="site-header" data-header>
         <div class="header-shell">
           <a class="brand-link" href="index.html" aria-label="Lacerta home">
-            <img src="assets/images/logo.svg" alt="Lacerta" width="268" height="82">
+            <img src="assets/images/logo.svg" alt="Lacerta" width="340" height="84">
           </a>
 
           <nav class="desktop-nav" aria-label="Primary navigation">
@@ -75,7 +75,7 @@
       <div class="mobile-menu" id="mobileMenu" aria-hidden="true" data-mobile-menu>
         <div class="mobile-menu__watermark" aria-hidden="true"></div>
         <div class="mobile-menu__top">
-          <img src="assets/images/logo.svg" alt="Lacerta" width="268" height="82">
+          <img src="assets/images/logo.svg" alt="Lacerta" width="340" height="84">
           <button class="icon-button" type="button" aria-label="Close menu" data-menu-close>
             <i data-lucide="x" aria-hidden="true"></i>
           </button>
@@ -107,7 +107,7 @@
       <footer class="site-footer">
         <div class="container footer-grid">
           <div class="footer-brand">
-            <a href="index.html" aria-label="Lacerta home"><img src="assets/images/logo.svg" alt="Lacerta" width="268" height="82"></a>
+            <a href="index.html" aria-label="Lacerta home"><img src="assets/images/logo.svg" alt="Lacerta" width="340" height="84"></a>
             <p>${config.footer.description}</p>
             <div class="footer-contact">
               <a href="${config.contact.phoneHref}" data-phone-href><i data-lucide="phone" aria-hidden="true"></i><span data-config="contact.phoneDisplay"></span></a>

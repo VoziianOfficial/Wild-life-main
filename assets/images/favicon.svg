@@ -1,0 +1,109 @@
+<svg width="220" height="96" viewBox="0 0 220 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bat logo">
+  <defs>
+    <linearGradient id="batWing" x1="26" y1="18" x2="194" y2="88" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A2416"/>
+      <stop offset="0.52" stop-color="#1A100B"/>
+      <stop offset="1" stop-color="#24150D"/>
+    </linearGradient>
+    <linearGradient id="goldMoon" x1="63" y1="8" x2="158" y2="86" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6C343"/>
+      <stop offset="1" stop-color="#E8782E"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#1A100B" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <path
+    d="M110 8C134.3 8 154 27.7 154 52C154 76.3 134.3 96 110 96C85.7 96 66 76.3 66 52C66 27.7 85.7 8 110 8Z"
+    fill="url(#goldMoon)"
+    opacity="0.96"
+  />
+  <path
+    d="M126.5 18C141.7 24.4 152.2 38.8 152.2 55.5C152.2 75.4 137.6 91.9 118.5 95.1C129.7 86.9 137 73.6 137 58.7C137 42.2 128.4 27.8 115.5 19.7C119 18.6 122.7 18 126.5 18Z"
+    fill="#F8F3EA"
+    opacity="0.18"
+  />
+  <path
+    d="M110 33
+       C102.2 24.2 96.5 23.7 91.4 31.8
+       C81.2 20.2 62.7 18.4 42.9 22.4
+       C48.4 28.2 49.7 34.2 45.9 40.3
+       C35.5 40.2 24.9 43.7 14 51.8
+       C27.3 54.2 36.2 59.4 40.8 67.2
+       C50.5 63.3 60.6 65.3 71.1 73.2
+       C73.7 63.7 79.2 57.8 87.5 55.5
+       C91.8 63 99.3 68.2 110 71.1
+       C120.7 68.2 128.2 63 132.5 55.5
+       C140.8 57.8 146.3 63.7 148.9 73.2
+       C159.4 65.3 169.5 63.3 179.2 67.2
+       C183.8 59.4 192.7 54.2 206 51.8
+       C195.1 43.7 184.5 40.2 174.1 40.3
+       C170.3 34.2 171.6 28.2 177.1 22.4
+       C157.3 18.4 138.8 20.2 128.6 31.8
+       C123.5 23.7 117.8 24.2 110 33Z"
+    fill="url(#batWing)"
+    filter="url(#softShadow)"
+  />
+  <path
+    d="M91.4 31.8C84.3 42.8 78 56.7 71.1 73.2"
+    stroke="#F6C343"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    opacity="0.38"
+  />
+  <path
+    d="M128.6 31.8C135.7 42.8 142 56.7 148.9 73.2"
+    stroke="#F6C343"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    opacity="0.38"
+  />
+  <path
+    d="M45.9 40.3C55.8 47.1 64.2 57.3 71.1 73.2"
+    stroke="#E7D2A5"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    opacity="0.24"
+  />
+  <path
+    d="M174.1 40.3C164.2 47.1 155.8 57.3 148.9 73.2"
+    stroke="#E7D2A5"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    opacity="0.24"
+  />
+  <path
+    d="M110 30
+       C118 38.2 121.5 49.7 120.2 63.8
+       C119.4 72.7 115.5 80.5 110 87
+       C104.5 80.5 100.6 72.7 99.8 63.8
+       C98.5 49.7 102 38.2 110 30Z"
+    fill="#1A100B"
+  />
+  <path
+    d="M100.6 34.8
+       L104.1 23.5
+       L110 31.1
+       L115.9 23.5
+       L119.4 34.8
+       C117.2 40.8 113.9 43.9 110 43.9
+       C106.1 43.9 102.8 40.8 100.6 34.8Z"
+    fill="#24150D"
+  />
+  <path
+    d="M105.4 38.1C106.9 40 108.4 40.9 110 40.9C111.6 40.9 113.1 40 114.6 38.1"
+    stroke="#E7D2A5"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    opacity="0.45"
+  />
+  <path d="M105.7 34.7C105.7 33.5 106.6 32.6 107.8 32.6C109 32.6 109.9 33.5 109.9 34.7C109.9 35.9 109 36.8 107.8 36.8C106.6 36.8 105.7 35.9 105.7 34.7Z" fill="#F6C343"/>
+  <path d="M110.1 34.7C110.1 33.5 111 32.6 112.2 32.6C113.4 32.6 114.3 33.5 114.3 34.7C114.3 35.9 113.4 36.8 112.2 36.8C111 36.8 110.1 35.9 110.1 34.7Z" fill="#F6C343"/>
+  <path
+    d="M105.5 62.5C106.8 68.5 108.3 73.1 110 76.4C111.7 73.1 113.2 68.5 114.5 62.5"
+    stroke="#E8782E"
+    stroke-width="2"
+    stroke-linecap="round"
+    opacity="0.65"
+  />
+</svg>
