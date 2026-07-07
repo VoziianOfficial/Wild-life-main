@@ -329,13 +329,19 @@ li {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  left: 0;
+  right: 0;
+  z-index: 3000;
   width: 100%;
   background: rgba(26, 16, 11, 0.96);
   border-bottom: 1px solid rgba(248, 243, 234, 0.12);
   transition: box-shadow 200ms ease, background 200ms ease;
+}
+
+body {
+  padding-top: var(--header-height);
 }
 
 .site-header.is-scrolled {
@@ -372,8 +378,8 @@ li {
   font-weight: 800;
 }
 
-.desktop-nav > a,
-.nav-services > a {
+.desktop-nav>a,
+.nav-services>a {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -381,8 +387,8 @@ li {
   padding: 0 12px;
 }
 
-.desktop-nav > a::after,
-.nav-services > a::after {
+.desktop-nav>a::after,
+.nav-services>a::after {
   content: "";
   position: absolute;
   left: 12px;
@@ -395,8 +401,8 @@ li {
   transition: transform 180ms ease;
 }
 
-.desktop-nav > a:hover::after,
-.nav-services:hover > a::after,
+.desktop-nav>a:hover::after,
+.nav-services:hover>a::after,
 .desktop-nav [aria-current="page"]::after {
   transform: scaleX(1);
 }
@@ -845,7 +851,7 @@ body:not([data-page="about"]) .page-hero h1 {
   transition: grid-template-rows 220ms ease;
 }
 
-.accordion-panel > div {
+.accordion-panel>div {
   overflow: hidden;
 }
 
@@ -893,7 +899,7 @@ body:not([data-page="about"]) .page-hero h1 {
   display: none;
 }
 
-.slider-track > * {
+.slider-track>* {
   scroll-snap-align: start;
 }
 
@@ -1220,6 +1226,7 @@ body:not([data-page="about"]) .page-hero h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -1343,6 +1350,7 @@ body:not([data-page="about"]) .page-hero h1 {
 }
 
 @media (max-width: 560px) {
+
   .container,
   .container-wide {
     width: min(calc(100% - 24px), var(--container));
@@ -1359,6 +1367,10 @@ body:not([data-page="about"]) .page-hero h1 {
 
   .page-hero {
     min-height: 480px;
+  }
+
+  .page-hero {
+    padding: 74px 0 74px;
   }
 
   body:not([data-page="about"]) .page-hero h1 {
