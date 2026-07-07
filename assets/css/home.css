@@ -216,25 +216,30 @@
 
 .intro-media {
   position: relative;
-  min-height: 540px;
+  min-height: 620px;
 }
 
 .intro-media .image-frame {
   position: absolute;
-  inset: 0 18% 18% 0;
+  inset: 0 12% 12% 0;
 }
 
 .intro-media .organic-frame {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 45%;
+  width: 49%;
   aspect-ratio: 1;
   border: 8px solid var(--color-ivory);
 }
 
 .intro-content {
   position: relative;
+}
+
+section[aria-labelledby="introTitle"] .section-heading {
+  max-width: 920px;
+  font-size: 3.7rem;
 }
 
 .intro-content::before {
@@ -629,7 +634,7 @@ section[aria-labelledby="situationsTitle"] .section-heading {
   }
 
   .intro-media {
-    min-height: 380px;
+    min-height: 440px;
   }
 
   .intro-media .image-frame {
