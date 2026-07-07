@@ -829,7 +829,7 @@ section[aria-labelledby="situationsTitle"] .section-heading {
   inset: -14% 0;
   z-index: 0;
   background:
-    url("../images/wildlife-parallax.jpg") center / cover no-repeat;
+    url("../images/cta-wildlife.jpg") center / cover no-repeat;
   will-change: transform;
   transform: translateY(0);
 }
