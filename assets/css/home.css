@@ -440,7 +440,7 @@ section[aria-labelledby="situationsTitle"] .section-heading {
 
 .parallax-banner {
   position: relative;
-  min-height: 360px;
+  min-height: 420px;
   display: grid;
   align-items: center;
   overflow: hidden;
@@ -450,30 +450,43 @@ section[aria-labelledby="situationsTitle"] .section-heading {
 
 .parallax-banner__bg {
   position: absolute;
-  inset: -12% 0;
+  inset: -20% 0;
   background:
-    linear-gradient(90deg, rgba(26, 16, 11, 0.86), rgba(26, 16, 11, 0.42)),
+    linear-gradient(90deg, rgba(26, 16, 11, 0.9), rgba(26, 16, 11, 0.34)),
     url("../images/gallery-3.jpg") center / cover no-repeat;
   transform: translateY(var(--parallax-shift, 0));
+  will-change: transform;
 }
 
 .parallax-banner__content {
   position: relative;
   z-index: 1;
-  max-width: 760px;
+  display: grid;
+  gap: 14px;
+  max-width: 640px;
+  padding: 34px 38px;
+  border: 1px solid rgba(248, 243, 234, 0.14);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(26, 16, 11, 0.78), rgba(26, 16, 11, 0.56));
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(4px);
 }
 
 .parallax-banner h2 {
   font-family: "Sora", "Space Grotesk", Arial, sans-serif;
-  font-size: 4rem;
-  line-height: 1.02;
+  font-size: 3.65rem;
+  line-height: 0.98;
   text-wrap: balance;
 }
 
 .parallax-banner p {
-  max-width: 620px;
-  margin-top: 14px;
+  max-width: 34ch;
+  margin-top: 0;
   color: rgba(248, 243, 234, 0.82);
+}
+
+.parallax-banner .button-row {
+  margin-top: 6px;
 }
 
 .faq-switch__image {
@@ -580,6 +593,11 @@ section[aria-labelledby="situationsTitle"] .section-heading {
 
   .parallax-banner h2 {
     font-size: 2.25rem;
+  }
+
+  .parallax-banner__content {
+    max-width: 100%;
+    padding: 26px 22px;
   }
 
   .home-hero__layout {

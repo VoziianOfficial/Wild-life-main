@@ -35,7 +35,7 @@
 
     const update = () => {
       const rect = bg.parentElement.getBoundingClientRect();
-      const shift = Math.max(-32, Math.min(32, rect.top * -0.045));
+      const shift = Math.max(-68, Math.min(68, rect.top * -0.09));
       bg.style.setProperty("--parallax-shift", `${shift}px`);
     };
 
