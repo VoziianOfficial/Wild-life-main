@@ -1185,3 +1185,21 @@ section[aria-labelledby="isTitle"] .section-heading {
     margin-bottom: 18px;
   }
 }
+
+/* Wider heading for About services cards */
+.about-services-cards__head {
+  max-width: 1280px !important;
+  margin: 0 auto 54px !important;
+  text-align: center;
+}
+
+.about-services-cards__head h2 {
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+  text-wrap: normal !important;
+}
+
+.about-services-cards__head p {
+  max-width: 760px;
+  margin: 22px auto 0;
+}
