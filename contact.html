@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit a wildlife concern to Lacerta and compare available local provider options.">
+  <title>Start a Wildlife Removal Provider Request | Lacerta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/global.js" defer></script>
+  <script src="assets/js/contact.js" defer></script>
+</head>
+<body data-page="contact">
+  <div data-site-header></div>
+
+  <main id="main">
+    <section class="page-hero contact-hero" aria-labelledby="contactHeroTitle">
+      <div class="container page-hero__content" data-aos="fade-right">
+        <span class="eyebrow">Start request</span>
+        <h1 id="contactHeroTitle">Start a Wildlife Removal Provider Request</h1>
+        <p class="page-hero__copy">Submit your concern and Lacerta may help connect you with participating local provider options.</p>
+        <div class="button-row">
+          <a class="button button--gold" href="#request-form">Start Form</a>
+          <a class="button button--ghost-light" href="all-services.html">View Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ivory" aria-labelledby="clarityTitle">
+      <div class="container-wide">
+        <h2 class="visually-hidden" id="clarityTitle">Contact clarity</h2>
+        <div class="clarity-cards" data-aos="fade-up">
+          <article class="clarity-card"><i data-lucide="shuffle" aria-hidden="true"></i><h2>Independent platform</h2><p>Lacerta helps organize provider matching and does not perform removal work directly.</p></article>
+          <article class="clarity-card"><i data-lucide="map" aria-hidden="true"></i><h2>Provider options vary</h2><p>Availability depends on location, timing, concern type, and participating provider response.</p></article>
+          <article class="clarity-card"><i data-lucide="file-x" aria-hidden="true"></i><h2>No direct service agreement</h2><p>Submitting this form does not create a service agreement through Lacerta.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="request-form" aria-labelledby="formTitle">
+      <div class="container contact-layout" data-aos="fade-up">
+        <aside class="contact-panel" aria-label="Lacerta contact information">
+          <span class="section-kicker">Contact Lacerta</span>
+          <h2>Share the concern. Review provider options where available.</h2>
+          <p>Lacerta may use your request details to connect you with participating providers. Final pricing, availability, methods, warranties, and service terms are provided by the provider you choose.</p>
+          <div class="contact-detail-list">
+            <a href="tel:+15550187426" data-phone-href><i data-lucide="phone" aria-hidden="true"></i><span data-config="contact.phoneDisplay"></span></a>
+            <a href="mailto:hello@lacertamatch.com" data-email-href><i data-lucide="mail" aria-hidden="true"></i><span data-config="contact.email"></span></a>
+            <div><i data-lucide="map-pin" aria-hidden="true"></i><span><span data-config="company.address"></span><br><span data-config="company.cityStateZip"></span></span></div>
+            <div><i data-lucide="map-pinned" aria-hidden="true"></i><span>Service area: <span data-config="company.serviceArea"></span></span></div>
+          </div>
+        </aside>
+        <div class="contact-form-card">
+          <span class="section-kicker">Provider request</span>
+          <h2 id="formTitle">Tell us what is happening.</h2>
+          <form class="form-grid" action="contact.php" method="post" data-contact-form novalidate>
+            <input type="hidden" name="sourcePage" value="contact.html">
+            <input type="hidden" name="formStartedAt" value="">
+            <div class="honeypot" aria-hidden="true">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="fullName">Full name</label>
+              <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+              <span class="field-error" data-error-for="fullName" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <span class="field-error" data-error-for="email" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              <span class="field-error" data-error-for="phone" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="service">Service category</label>
+              <select id="service" name="service" required>
+                <option value="">Select a category</option>
+                <option value="Raccoon Removal">Raccoon Removal</option>
+                <option value="Squirrel Removal">Squirrel Removal</option>
+                <option value="Bat Removal">Bat Removal</option>
+                <option value="Bird Control">Bird Control</option>
+                <option value="Snake Removal">Snake Removal</option>
+                <option value="Attic Wildlife Cleanup">Attic Wildlife Cleanup</option>
+                <option value="Not Sure">Not Sure</option>
+              </select>
+              <span class="field-error" data-error-for="service" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Describe the concern, location on the property, timing, and any provider questions." required></textarea>
+              <span class="field-error" data-error-for="message" aria-live="polite"></span>
+            </div>
+            <label class="checkbox-field" for="privacyConsent">
+              <input type="checkbox" id="privacyConsent" name="privacyConsent" value="yes" required>
+              <span>I agree that Lacerta may use my request details to help connect me with participating provider options. I understand this does not create a service agreement.</span>
+            </label>
+            <span class="field-error" data-error-for="privacyConsent" aria-live="polite"></span>
+            <p class="form-note">Submitting this form does not create a service agreement. Lacerta may use your request details to connect you with participating providers. Final pricing, availability, methods, warranties, and service terms are provided by the provider you choose.</p>
+            <button class="button button--gold" type="submit">Submit Request <i data-lucide="send" aria-hidden="true"></i></button>
+            <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ivory" aria-labelledby="afterTitle">
+      <div class="container">
+        <span class="section-kicker">After submission</span>
+        <h2 class="section-heading" id="afterTitle">What may happen after you send the request.</h2>
+        <ol class="contact-timeline" data-aos="fade-up">
+          <li><span>01</span><h3>Request received</h3><p>Lacerta reviews submitted details for provider-matching context.</p></li>
+          <li><span>02</span><h3>Category matched</h3><p>The concern may be aligned with participating provider categories.</p></li>
+          <li><span>03</span><h3>Provider discussion</h3><p>Providers may discuss availability, pricing, methods, and terms directly.</p></li>
+          <li><span>04</span><h3>You decide</h3><p>Review details and choose whether to continue with a provider.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--white" aria-labelledby="selectionTitle">
+      <div class="container-wide">
+        <span class="section-kicker">Unsure what to pick?</span>
+        <h2 class="section-heading" id="selectionTitle">Browse concern categories before submitting.</h2>
+        <div class="concern-buttons" data-aos="fade-up">
+          <a href="raccoon-removal.html"><i data-lucide="paw-print" aria-hidden="true"></i><span>Raccoon Removal</span></a>
+          <a href="squirrel-removal.html"><i data-lucide="tree-pine" aria-hidden="true"></i><span>Squirrel Removal</span></a>
+          <a href="bat-removal.html"><i data-lucide="moon" aria-hidden="true"></i><span>Bat Removal</span></a>
+          <a href="bird-control.html"><i data-lucide="feather" aria-hidden="true"></i><span>Bird Control</span></a>
+          <a href="snake-removal.html"><i data-lucide="waves" aria-hidden="true"></i><span>Snake Removal</span></a>
+          <a href="attic-wildlife-cleanup.html"><i data-lucide="home" aria-hidden="true"></i><span>Attic Cleanup</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ivory" aria-labelledby="safetyTitle">
+      <div class="container safety-grid">
+        <div data-aos="fade-right">
+          <span class="section-kicker">Safety reminder</span>
+          <h2 class="section-heading" id="safetyTitle">Ask providers about credentials, scope, and terms.</h2>
+          <p class="section-copy">Lacerta does not guarantee provider work, licensing, insurance, methods, pricing, or warranties. Homeowners should verify provider details and local requirements before authorizing any service.</p>
+          <ul class="line-list">
+            <li><i data-lucide="badge-check" aria-hidden="true"></i><span>Licensing and insurance documentation</span></li>
+            <li><i data-lucide="scale" aria-hidden="true"></i><span>Methods and local wildlife regulations</span></li>
+            <li><i data-lucide="file-text" aria-hidden="true"></i><span>Written estimate, warranty, and service terms</span></li>
+          </ul>
+        </div>
+        <div class="safety-photos" data-aos="fade-left">
+          <figure class="image-frame"><img src="assets/images/gallery-1.jpg" width="760" height="900" alt="Exterior eave and trim detail" loading="lazy"></figure>
+          <figure class="organic-frame"><img src="assets/images/gallery-3.jpg" width="420" height="420" alt="Wooded yard edge" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" aria-labelledby="contactFaqTitle">
+      <div class="container">
+        <span class="section-kicker">FAQ</span>
+        <h2 class="section-heading" id="contactFaqTitle">Contact and form questions.</h2>
+        <div class="accordion" data-accordion>
+          <article class="accordion-item is-open" data-accordion-item><button class="accordion-button" type="button" aria-expanded="true" data-accordion-button>Does submitting the form create a service agreement? <i data-lucide="plus" aria-hidden="true"></i></button><div class="accordion-panel"><div><p>No. Submitting the form does not create a service agreement through Lacerta or any provider.</p></div></div></article>
+          <article class="accordion-item" data-accordion-item><button class="accordion-button" type="button" aria-expanded="false" data-accordion-button>What information should I include? <i data-lucide="plus" aria-hidden="true"></i></button><div class="accordion-panel"><div><p>Include the concern type, property area, when you noticed it, and any questions you want to ask providers.</p></div></div></article>
+          <article class="accordion-item" data-accordion-item><button class="accordion-button" type="button" aria-expanded="false" data-accordion-button>Will provider options always be available? <i data-lucide="plus" aria-hidden="true"></i></button><div class="accordion-panel"><div><p>No. Provider options vary by local market, timing, concern type, and participating provider response.</p></div></div></article>
+          <article class="accordion-item" data-accordion-item><button class="accordion-button" type="button" aria-expanded="false" data-accordion-button>Who provides pricing and warranties? <i data-lucide="plus" aria-hidden="true"></i></button><div class="accordion-panel"><div><p>Participating providers provide their own pricing, warranties, methods, availability, and service terms.</p></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="prefooter-cta" aria-labelledby="contactCtaTitle">
+      <div class="container-wide prefooter-cta__panel" data-aos="zoom-in">
+        <div class="prefooter-cta__content">
+          <h2 id="contactCtaTitle">Ready to compare wildlife removal provider options?</h2>
+          <p>Submit your concern and review available local options before choosing whether to continue.</p>
+        </div>
+        <div class="prefooter-cta__actions">
+          <a class="button button--gold" href="#request-form">Start Request</a>
+          <a class="button button--ghost-light" href="all-services.html">View Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Does submitting the form create a service agreement?", "acceptedAnswer": {"@type": "Answer", "text": "No. Submitting the form does not create a service agreement through Lacerta or any provider."}},
+      {"@type": "Question", "name": "What information should I include?", "acceptedAnswer": {"@type": "Answer", "text": "Include the concern type, property area, when you noticed it, and any questions you want to ask providers."}},
+      {"@type": "Question", "name": "Will provider options always be available?", "acceptedAnswer": {"@type": "Answer", "text": "No. Provider options vary by local market, timing, concern type, and participating provider response."}},
+      {"@type": "Question", "name": "Who provides pricing and warranties?", "acceptedAnswer": {"@type": "Answer", "text": "Participating providers provide their own pricing, warranties, methods, availability, and service terms."}}
+    ]
+  }
+  </script>
+</body>
+</html>

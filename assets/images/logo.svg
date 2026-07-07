@@ -1,0 +1,30 @@
+<svg width="268" height="82" viewBox="0 0 268 82" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lacertaLogoTitle lacertaLogoDesc">
+  <title id="lacertaLogoTitle">Lacerta</title>
+  <desc id="lacertaLogoDesc">A premium lizard mark with the Lacerta wordmark.</desc>
+  <defs>
+    <linearGradient id="markGold" x1="9" y1="62" x2="103" y2="11" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8782E"/>
+      <stop offset="0.48" stop-color="#F6C343"/>
+      <stop offset="1" stop-color="#F8F3EA"/>
+    </linearGradient>
+    <linearGradient id="markDark" x1="24" y1="18" x2="86" y2="67" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6F8B3D"/>
+      <stop offset="1" stop-color="#3F5C2A"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <path d="M20.7 51.1C31.6 27.9 55.3 15.8 83.5 19.5C92.9 20.8 100.4 24.3 106.1 29.3C111.2 33.7 112.1 41.1 108 46.6C103.7 52.3 96.6 53.7 90.5 50.2C80.6 44.6 66.1 42 53 47.9C44.6 51.6 38 58.3 33.2 67.8C29.9 74.3 20.2 71.6 20.7 64.3C21 59.5 20.8 55 20.7 51.1Z" fill="url(#markGold)"/>
+    <path d="M31.1 47.7C43.7 27 67 23.9 86.9 31.1C91.5 32.8 94.4 36.6 93.8 40.5C93.1 45.3 88.1 47.8 83.9 45.6C71.7 39.1 58.1 38.9 48 45.1C40.8 49.5 35.9 56.9 32.9 67.5C30.2 58.7 28.7 51.7 31.1 47.7Z" fill="#24150D" fill-opacity="0.72"/>
+    <path d="M50.6 31.8C39.9 24.7 27.9 21.7 16.4 21.4C11.7 21.3 9.8 27.5 13.8 30C22 35.2 29.1 41.3 34.3 49.4" stroke="#F6C343" stroke-width="6" stroke-linecap="round"/>
+    <path d="M74.8 31.9C80.2 23.4 87.4 16.5 96.9 11.9C101.2 9.8 105.3 15.3 102 18.8C96.4 24.8 93 31.4 91.1 39.4" stroke="#F8F3EA" stroke-width="5.4" stroke-linecap="round"/>
+    <path d="M75.4 48.2C84.3 57.4 94.7 62.5 107.3 65.2C112.1 66.2 112.1 73.2 107.3 74.3C95.8 77 82.9 74.9 71.4 66.4" stroke="#E8782E" stroke-width="6" stroke-linecap="round"/>
+    <path d="M43.3 48.3C38.3 54.2 30.8 58.2 20.6 60.1" stroke="#F8F3EA" stroke-width="5" stroke-linecap="round"/>
+    <path d="M55.5 39.5L62.2 35.6L69.8 39.6L62.3 44.2L55.5 39.5Z" fill="url(#markDark)"/>
+    <path d="M77.8 37.5C79.3 35.6 82.2 35.6 83.6 37.6C85 39.5 83.6 42.2 81.2 42.2C78.7 42.2 76.3 39.5 77.8 37.5Z" fill="#1A100B"/>
+    <path d="M16 52.6C10.2 55.1 6.4 60 4.8 66.6" stroke="#6F8B3D" stroke-width="4.8" stroke-linecap="round"/>
+    <path d="M42.2 25.9C36.4 17.9 29.9 12.8 21 10.1" stroke="#E8782E" stroke-width="4.8" stroke-linecap="round"/>
+    <path d="M61.5 53.2C60.6 58.4 60.9 63.5 62.6 68.5" stroke="#6F8B3D" stroke-width="4.8" stroke-linecap="round"/>
+    <text x="122" y="45" fill="#FFFDF8" font-family="Sora, Space Grotesk, Arial, sans-serif" font-size="31" font-weight="800" letter-spacing="0">Lacerta</text>
+    <text x="124" y="64" fill="#E7D2A5" font-family="Inter, Manrope, Arial, sans-serif" font-size="8.8" font-weight="700" letter-spacing="1.4">INDEPENDENT MATCHING PLATFORM</text>
+  </g>
+</svg>
