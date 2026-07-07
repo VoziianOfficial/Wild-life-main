@@ -349,6 +349,12 @@
   gap: 54px;
 }
 
+section[aria-labelledby="situationsTitle"] .section-heading {
+  width: 100%;
+  max-width: none;
+  padding-left: clamp(24px, 4vw, 64px);
+}
+
 .situation-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
