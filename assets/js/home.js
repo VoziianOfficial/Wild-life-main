@@ -48,6 +48,45 @@
     });
   };
 
+  function initRequestVoicesSwiper(root = document) {
+    const sliders = root.querySelectorAll(".lacerta-request-voices__swiper");
+
+    sliders.forEach((slider) => {
+      if (slider.classList.contains("is-initialized")) return;
+      if (typeof Swiper === "undefined") return;
+
+      slider.classList.add("is-initialized");
+
+      new Swiper(slider, {
+        slidesPerView: 1,
+        spaceBetween: 26,
+        loop: true,
+        speed: 700,
+        grabCursor: true,
+        autoplay: {
+          delay: 4200,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: slider.querySelector(".lacerta-request-voices__pagination"),
+          clickable: true
+        },
+        navigation: {
+          nextEl: slider.querySelector(".lacerta-request-voices__next"),
+          prevEl: slider.querySelector(".lacerta-request-voices__prev")
+        },
+        breakpoints: {
+          980: {
+            slidesPerView: 2,
+            spaceBetween: 34
+          }
+        }
+      });
+    });
+  }
+
+  initRequestVoicesSwiper();
+
   let parallaxTicking = false;
 
   window.addEventListener("scroll", () => {
