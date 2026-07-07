@@ -730,6 +730,7 @@ section[aria-labelledby="situationsTitle"] .section-heading {
 }
 
 .lacerta-editorial__photo--large {
+  height: 590px;
   min-height: 550px;
 }
 
@@ -771,6 +772,7 @@ section[aria-labelledby="situationsTitle"] .section-heading {
   }
 
   .lacerta-editorial__photo--large {
+    height: 360px;
     min-height: 360px;
   }
 
@@ -798,6 +800,7 @@ section[aria-labelledby="situationsTitle"] .section-heading {
   }
 
   .lacerta-editorial__photo--large {
+    height: 300px;
     min-height: 300px;
   }
 
