@@ -364,7 +364,7 @@ li {
 }
 
 .desktop-nav {
-  justify-self: end;
+  justify-self: center;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -643,13 +643,21 @@ li {
   min-width: 0;
 }
 
+body:not([data-page="about"]) .page-hero__content {
+  max-width: 920px;
+}
+
 .page-hero h1 {
   margin-top: 18px;
   font-family: "Sora", "Space Grotesk", Arial, sans-serif;
-  font-size: 6.2rem;
+  font-size: 5.3rem;
   line-height: 0.98;
   letter-spacing: 0;
   text-wrap: balance;
+}
+
+body:not([data-page="about"]) .page-hero h1 {
+  max-width: 900px;
 }
 
 .page-hero__copy {
@@ -1264,6 +1272,10 @@ li {
     padding: 112px 0 74px;
   }
 
+  body:not([data-page="about"]) .page-hero h1 {
+    font-size: 3.5rem;
+  }
+
   .page-hero h1 {
     font-size: 4rem;
   }
@@ -1347,6 +1359,10 @@ li {
 
   .page-hero {
     min-height: 480px;
+  }
+
+  body:not([data-page="about"]) .page-hero h1 {
+    font-size: 2.3rem;
   }
 
   .page-hero h1 {
