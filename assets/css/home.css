@@ -654,3 +654,153 @@ section[aria-labelledby="situationsTitle"] .section-heading {
     margin: 18px 0 0;
   }
 }
+
+
+.lacerta-editorial {
+  background: var(--color-white);
+}
+
+.lacerta-editorial__head {
+  max-width: 1160px;
+  margin: 0 auto 58px;
+  text-align: center;
+}
+
+.lacerta-editorial__head .section-kicker {
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--color-green);
+}
+
+.lacerta-editorial__head .section-kicker::before {
+  background: var(--color-green);
+}
+
+.lacerta-editorial__head h2 {
+  margin: 0 auto;
+  max-width: 1120px;
+  color: var(--color-text);
+  font-family: "Sora", "Space Grotesk", Arial, sans-serif;
+  font-size: clamp(2.35rem, 5vw, 4.65rem);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.lacerta-editorial__grid {
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  gap: 32px;
+  align-items: end;
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.lacerta-editorial__photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--color-cream);
+}
+
+.lacerta-editorial__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 16, 11, 0.08);
+  pointer-events: none;
+}
+
+.lacerta-editorial__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms ease;
+}
+
+.lacerta-editorial__photo:hover img {
+  transform: scale(1.045);
+}
+
+.lacerta-editorial__photo--large {
+  min-height: 550px;
+}
+
+.lacerta-editorial__side {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.lacerta-editorial__side p {
+  max-width: 610px;
+  color: var(--color-muted);
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+.lacerta-editorial__side .button {
+  justify-self: start;
+  margin-top: 8px;
+  min-width: 158px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.86rem;
+}
+
+.lacerta-editorial__photo--wide {
+  min-height: 244px;
+  margin-top: 4px;
+}
+
+@media (max-width: 980px) {
+  .lacerta-editorial__head {
+    margin-bottom: 42px;
+  }
+
+  .lacerta-editorial__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .lacerta-editorial__photo--large {
+    min-height: 360px;
+  }
+
+  .lacerta-editorial__photo--wide {
+    min-height: 250px;
+  }
+
+  .lacerta-editorial__side {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .lacerta-editorial__head {
+    text-align: left;
+  }
+
+  .lacerta-editorial__head .section-kicker {
+    justify-content: flex-start;
+  }
+
+  .lacerta-editorial__head h2 {
+    font-size: 2rem;
+    line-height: 1.12;
+  }
+
+  .lacerta-editorial__photo--large {
+    min-height: 300px;
+  }
+
+  .lacerta-editorial__photo--wide {
+    min-height: 210px;
+  }
+
+  .lacerta-editorial__side .button {
+    width: 100%;
+  }
+}
