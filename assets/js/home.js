@@ -29,6 +29,41 @@
     });
   }
 
+  const parallaxSections = document.querySelectorAll(".lacerta-parallax-stats");
+
+  const updateParallaxSections = () => {
+    parallaxSections.forEach((section) => {
+      const bg = section.querySelector(".lacerta-parallax-stats__bg");
+      if (!bg) return;
+
+      const rect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      if (rect.bottom < 0 || rect.top > viewportHeight) return;
+
+      const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+      const move = (progress - 0.5) * 70;
+
+      bg.style.transform = `translateY(${move}px)`;
+    });
+  };
+
+  let parallaxTicking = false;
+
+  window.addEventListener("scroll", () => {
+    if (parallaxTicking) return;
+
+    window.requestAnimationFrame(() => {
+      updateParallaxSections();
+      parallaxTicking = false;
+    });
+
+    parallaxTicking = true;
+  }, { passive: true });
+
+  window.addEventListener("resize", updateParallaxSections);
+  window.addEventListener("load", updateParallaxSections);
+
   function initParallax() {
     const bg = document.querySelector(".parallax-banner__bg");
     if (!bg || window.matchMedia("(max-width: 760px)").matches) return;

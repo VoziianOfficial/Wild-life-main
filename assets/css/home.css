@@ -221,7 +221,7 @@
 
 .intro-media .image-frame {
   position: absolute;
-  inset: 0 12% 12% 0;
+  inset: -4% 6% 8% -3%;
 }
 
 .intro-media .organic-frame {
@@ -807,5 +807,169 @@ section[aria-labelledby="situationsTitle"] .section-heading {
 
   .lacerta-editorial__side .button {
     width: 100%;
+  }
+}
+
+
+.lacerta-parallax-stats {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  color: var(--color-cream);
+  background: var(--color-brown-950);
+}
+
+.lacerta-parallax-stats__bg {
+  position: absolute;
+  inset: -14% 0;
+  z-index: 0;
+  background:
+    url("../images/wildlife-parallax.jpg") center / cover no-repeat;
+  will-change: transform;
+  transform: translateY(0);
+}
+
+.lacerta-parallax-stats__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg,
+      rgba(26, 16, 11, 0.78),
+      rgba(26, 16, 11, 0.74));
+}
+
+.lacerta-parallax-stats__inner {
+  position: relative;
+  z-index: 2;
+  padding: 108px 0 86px;
+}
+
+.lacerta-parallax-stats__content {
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lacerta-parallax-stats__kicker {
+  display: inline-flex;
+  margin-bottom: 22px;
+  color: var(--color-green);
+  font-size: 0.9rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lacerta-parallax-stats h2 {
+  max-width: 1120px;
+  margin: 0 auto;
+  color: var(--color-ivory);
+  font-family: "Sora", "Space Grotesk", Arial, sans-serif;
+  font-size: clamp(2.35rem, 5vw, 4.45rem);
+  font-weight: 850;
+  line-height: 1.16;
+  letter-spacing: 0.03em;
+  text-wrap: balance;
+}
+
+.lacerta-parallax-stats__line {
+  width: min(100%, 1220px);
+  height: 1px;
+  margin: 70px auto 52px;
+  background: rgba(248, 243, 234, 0.18);
+}
+
+.lacerta-parallax-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 34px;
+  width: min(100%, 1220px);
+  margin: 0 auto;
+}
+
+.lacerta-parallax-stats__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: center;
+  min-width: 0;
+}
+
+.lacerta-parallax-stats__item strong {
+  color: var(--color-green);
+  font-family: "Sora", "Space Grotesk", Arial, sans-serif;
+  font-size: clamp(2.8rem, 4.8vw, 4.35rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.lacerta-parallax-stats__item span {
+  max-width: 190px;
+  color: rgba(255, 253, 248, 0.9);
+  font-size: 1.03rem;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+@media (max-width: 980px) {
+  .lacerta-parallax-stats {
+    min-height: 560px;
+  }
+
+  .lacerta-parallax-stats__inner {
+    padding: 86px 0 72px;
+  }
+
+  .lacerta-parallax-stats__line {
+    margin: 52px auto 38px;
+  }
+
+  .lacerta-parallax-stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 34px;
+  }
+}
+
+@media (max-width: 560px) {
+  .lacerta-parallax-stats {
+    min-height: auto;
+  }
+
+  .lacerta-parallax-stats__bg {
+    inset: -8% 0;
+  }
+
+  .lacerta-parallax-stats__inner {
+    padding: 72px 0 62px;
+  }
+
+  .lacerta-parallax-stats__content {
+    text-align: left;
+  }
+
+  .lacerta-parallax-stats h2 {
+    font-size: 2rem;
+    line-height: 1.18;
+  }
+
+  .lacerta-parallax-stats__line {
+    margin: 38px 0 30px;
+  }
+
+  .lacerta-parallax-stats__grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .lacerta-parallax-stats__item {
+    gap: 16px;
+  }
+
+  .lacerta-parallax-stats__item span {
+    max-width: 260px;
   }
 }
