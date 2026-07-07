@@ -356,11 +356,11 @@ li {
 .brand-link {
   display: flex;
   align-items: center;
-  width: 188px;
+  width: 214px;
 }
 
 .brand-link img {
-  width: 188px;
+  width: 214px;
 }
 
 .desktop-nav {
@@ -1096,7 +1096,7 @@ body:not([data-page="about"]) .page-hero h1 {
 }
 
 .footer-brand img {
-  width: 190px;
+  width: 214px;
 }
 
 .footer-brand p {
@@ -1288,7 +1288,7 @@ body:not([data-page="about"]) .page-hero h1 {
 
   .brand-link,
   .brand-link img {
-    width: 158px;
+    width: 180px;
   }
 
   .header-shell {
@@ -1395,7 +1395,7 @@ body:not([data-page="about"]) .page-hero h1 {
 
   .brand-link,
   .brand-link img {
-    width: 146px;
+    width: 162px;
   }
 
   .header-actions {
