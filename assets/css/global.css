@@ -932,7 +932,7 @@ body:not([data-page="about"]) .page-hero h1 {
 }
 
 .prefooter-cta {
-  padding: 0 0 92px;
+  padding: 92px 0;
   background: var(--color-ivory);
 }
 
