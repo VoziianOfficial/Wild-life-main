@@ -47,75 +47,113 @@
       </div>
     </section>
 
-    <section class="section section--white" id="request-form" aria-labelledby="formTitle">
-      <div class="container contact-layout" data-aos="fade-up">
-        <aside class="contact-panel" aria-label="Lacerta contact information">
-          <span class="section-kicker">Contact Lacerta</span>
-          <h2>Share the concern. Review provider options where available.</h2>
-          <p>Lacerta may use your request details to connect you with participating providers. Final pricing, availability, methods, warranties, and service terms are provided by the provider you choose.</p>
-          <div class="contact-detail-list">
-            <a href="tel:+15550187426" data-phone-href><i data-lucide="phone" aria-hidden="true"></i><span data-config="contact.phoneDisplay"></span></a>
-            <a href="mailto:hello@lacertamatch.com" data-email-href><i data-lucide="mail" aria-hidden="true"></i><span data-config="contact.email"></span></a>
-            <div><i data-lucide="map-pin" aria-hidden="true"></i><span><span data-config="company.address"></span><br><span data-config="company.cityStateZip"></span></span></div>
-            <div><i data-lucide="map-pinned" aria-hidden="true"></i><span>Service area: <span data-config="company.serviceArea"></span></span></div>
+    <section class="lacerta-contact-banner" aria-labelledby="lacertaContactBannerTitle">
+      <div class="lacerta-contact-banner__bg">
+        <img src="assets/images/contact-wildlife-bg.jpg" alt="Wildlife nature background">
+      </div>
+    
+      <div class="lacerta-contact-banner__overlay"></div>
+    
+      <div class="lacerta-contact-banner__marquee" aria-hidden="true">
+        <div class="lacerta-contact-banner__marquee-track">
+          <span>Get in touch · Compare wildlife provider options · Get in touch · Compare wildlife provider options ·
+          </span>
+          <span>Get in touch · Compare wildlife provider options · Get in touch · Compare wildlife provider options ·
+          </span>
+        </div>
+      </div>
+    
+      <div class="container-wide lacerta-contact-banner__inner">
+        <div class="lacerta-contact-banner__left" data-aos="fade-right">
+          <span class="lacerta-contact-banner__kicker">Let’s Talk</span>
+          <h2 id="lacertaContactBannerTitle">Start a Wildlife Provider Request</h2>
+          <p>
+            Lacerta helps homeowners submit request details and compare independent local provider options for
+            wildlife-related issues.
+          </p>
+        </div>
+    
+        <div class="lacerta-contact-banner__form-wrap" data-aos="fade-left">
+          <div class="lacerta-contact-banner__form-card">
+            <span class="lacerta-contact-banner__form-kicker">Start a Request</span>
+            <h3>Tell us about your situation.</h3>
+    
+            <form class="lacerta-contact-banner__form" action="contact.php" method="post">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your name" required>
+              </label>
+    
+              <label>
+                <span>Email address</span>
+                <input type="email" name="email" placeholder="Your email" required>
+              </label>
+    
+              <label>
+                <span>Phone number</span>
+                <input type="tel" name="phone" placeholder="Your phone number" required>
+              </label>
+    
+              <label>
+                <span>Message</span>
+                <textarea name="message" rows="5" placeholder="Briefly describe the wildlife concern" required></textarea>
+              </label>
+    
+              <button type="submit" class="lacerta-contact-banner__submit">
+                <span>Submit Request</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </form>
           </div>
-        </aside>
-        <div class="contact-form-card">
-          <span class="section-kicker">Provider request</span>
-          <h2 id="formTitle">Tell us what is happening.</h2>
-          <form class="form-grid" action="contact.php" method="post" data-contact-form novalidate>
-            <input type="hidden" name="sourcePage" value="contact.html">
-            <input type="hidden" name="formStartedAt" value="">
-            <div class="honeypot" aria-hidden="true">
-              <label for="company">Company</label>
-              <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
-            </div>
-            <div class="field">
-              <label for="fullName">Full name</label>
-              <input type="text" id="fullName" name="fullName" autocomplete="name" required>
-              <span class="field-error" data-error-for="fullName" aria-live="polite"></span>
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
-              <span class="field-error" data-error-for="email" aria-live="polite"></span>
-            </div>
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
-              <span class="field-error" data-error-for="phone" aria-live="polite"></span>
-            </div>
-            <div class="field">
-              <label for="service">Service category</label>
-              <select id="service" name="service" required>
-                <option value="">Select a category</option>
-                <option value="Raccoon Removal">Raccoon Removal</option>
-                <option value="Squirrel Removal">Squirrel Removal</option>
-                <option value="Bat Removal">Bat Removal</option>
-                <option value="Bird Control">Bird Control</option>
-                <option value="Snake Removal">Snake Removal</option>
-                <option value="Attic Wildlife Cleanup">Attic Wildlife Cleanup</option>
-                <option value="Not Sure">Not Sure</option>
-              </select>
-              <span class="field-error" data-error-for="service" aria-live="polite"></span>
-            </div>
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Describe the concern, location on the property, timing, and any provider questions." required></textarea>
-              <span class="field-error" data-error-for="message" aria-live="polite"></span>
-            </div>
-            <label class="checkbox-field" for="privacyConsent">
-              <input type="checkbox" id="privacyConsent" name="privacyConsent" value="yes" required>
-              <span>I agree that Lacerta may use my request details to help connect me with participating provider options. I understand this does not create a service agreement.</span>
-            </label>
-            <span class="field-error" data-error-for="privacyConsent" aria-live="polite"></span>
-            <p class="form-note">Submitting this form does not create a service agreement. Lacerta may use your request details to connect you with participating providers. Final pricing, availability, methods, warranties, and service terms are provided by the provider you choose.</p>
-            <button class="button button--gold" type="submit">Submit Request <i data-lucide="send" aria-hidden="true"></i></button>
-            <div class="form-status" role="status" aria-live="polite" data-form-status></div>
-          </form>
+        </div>
+      </div>
+    
+      <div class="container-wide">
+        <div class="lacerta-contact-banner__meta" data-aos="fade-up">
+          <div class="lacerta-contact-banner__meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.8l-1.3 1.3a16 16 0 0 0 6.4 6.4l1.3-1.3a2 2 0 0 1 1.8-.6l3 .5A2 2 0 0 1 22 16.9Z"
+                fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span data-company-phone>+1 (000) 000-0000</span>
+          </div>
+    
+          <div class="lacerta-contact-banner__meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" fill="none"
+                stroke="currentColor" stroke-width="1.7" />
+              <path d="m22 7-10 7L2 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span data-company-email>hello@lacertaexample.com</span>
+          </div>
+    
+          <div class="lacerta-contact-banner__meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor"
+                stroke-width="1.7" />
+            </svg>
+            <span data-company-address>123 Example Street, Your City</span>
+          </div>
+    
+          <div class="lacerta-contact-banner__meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7" />
+              <path d="M12 7v5l3 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Mon – Fri · 09:00 am – 06:00 pm</span>
+          </div>
         </div>
       </div>
     </section>
+
 
     <section class="section section--ivory" aria-labelledby="safetyTitle">
       <div class="container safety-grid">
