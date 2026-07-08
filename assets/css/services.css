@@ -525,3 +525,191 @@ section[aria-labelledby="discussTitle"] .section-heading {
     font-size: 0.98rem;
   }
 }
+
+.service-overlap-stats {
+  overflow: hidden;
+  background: var(--color-white);
+}
+
+.service-overlap-stats__layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  min-height: 650px;
+}
+
+.service-overlap-stats__image {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+  background: var(--color-brown-900);
+}
+
+.service-overlap-stats__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 16, 11, 0.08);
+  pointer-events: none;
+}
+
+.service-overlap-stats__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 760ms ease;
+}
+
+.service-overlap-stats__image:hover img {
+  transform: scale(1.045);
+}
+
+.service-overlap-stats__panel {
+  position: relative;
+  z-index: 2;
+  width: calc(100% + 96px);
+  margin-left: -96px;
+  padding: clamp(42px, 5vw, 76px);
+  background: var(--color-cream);
+  box-shadow: 0 26px 90px rgba(26, 16, 11, 0.12);
+}
+
+.service-overlap-stats__kicker {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: var(--color-green);
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.service-overlap-stats__panel h2 {
+  max-width: 720px;
+  color: var(--color-brown-950);
+  font-family: "Sora", "Space Grotesk", Arial, sans-serif;
+  font-size: clamp(2.15rem, 4vw, 4rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.service-overlap-stats__panel p {
+  max-width: 680px;
+  margin-top: 22px;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1.78;
+}
+
+.service-overlap-stats__numbers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 44px;
+}
+
+.service-overlap-stat {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  column-gap: 14px;
+  row-gap: 10px;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(58, 36, 22, 0.14);
+}
+
+.service-overlap-stat i,
+.service-overlap-stat svg {
+  grid-row: 1 / span 2;
+  width: 34px;
+  height: 34px;
+  color: var(--color-green);
+  stroke-width: 1.65;
+}
+
+.service-overlap-stat strong {
+  color: var(--color-brown-950);
+  font-family: "Sora", "Space Grotesk", Arial, sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3.1rem);
+  font-weight: 950;
+  line-height: 1;
+}
+
+.service-overlap-stat>span:last-child {
+  grid-column: 2;
+  color: var(--color-muted);
+  font-size: 0.96rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.service-overlap-stats__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 42px;
+}
+
+.service-overlap-stats__actions .button {
+  min-height: 56px;
+  padding-inline: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 1080px) {
+  .service-overlap-stats__layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .service-overlap-stats__image {
+    min-height: 460px;
+  }
+
+  .service-overlap-stats__panel {
+    width: calc(100% - 48px);
+    margin: -80px auto 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .service-overlap-stats__image {
+    min-height: 320px;
+  }
+
+  .service-overlap-stats__panel {
+    width: calc(100% - 24px);
+    margin-top: -46px;
+    padding: 30px 22px;
+  }
+
+  .service-overlap-stats__panel h2 {
+    font-size: 2rem;
+    line-height: 1.12;
+  }
+
+  .service-overlap-stats__numbers {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 30px;
+  }
+
+  .service-overlap-stat {
+    padding-bottom: 18px;
+  }
+
+  .service-overlap-stats__actions {
+    margin-top: 30px;
+  }
+
+  .service-overlap-stats__actions .button {
+    width: 100%;
+  }
+}
