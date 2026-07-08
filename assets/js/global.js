@@ -65,8 +65,11 @@
               <i data-lucide="mail" aria-hidden="true"></i>
             </a>
             <button class="menu-button" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false" data-menu-button>
-              <span></span>
-              <span></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M4 7h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+                <path d="M7 12h13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+                <path d="M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+              </svg>
             </button>
           </div>
         </div>
@@ -76,7 +79,7 @@
         <div class="mobile-menu__watermark" aria-hidden="true"></div>
         <div class="mobile-menu__top">
           <img src="assets/images/logo.svg" alt="Lacerta" width="380" height="84">
-          <button class="icon-button" type="button" aria-label="Close menu" data-menu-close>
+          <button class="icon-button mobile-menu__close" type="button" aria-label="Close menu" data-menu-close>
             <i data-lucide="x" aria-hidden="true"></i>
           </button>
         </div>
