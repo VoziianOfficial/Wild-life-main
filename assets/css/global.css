@@ -1620,3 +1620,69 @@ body:not([data-page="about"]) .page-hero h1 {
     justify-content: center !important;
   }
 }
+
+
+@media (max-width: 980px) {
+  .about-service-mosaic__tile>span {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    min-height: 58px;
+    padding: 12px 12px 12px 18px;
+    color: var(--color-white);
+    background: rgba(26, 16, 11, 0.78);
+    border: 1px solid rgba(248, 243, 234, 0.22);
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+    font-size: 0.95rem;
+    font-weight: 850;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .about-service-mosaic__tile>span::after {
+    content: "" !important;
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    place-items: center;
+    border-radius: 999px;
+    background-color: var(--color-yellow);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 17L17 7M10 7h7v7' fill='none' stroke='%23241611' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 18px 18px;
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+
+  .about-service-mosaic__tile:hover>span::after {
+    background-color: var(--color-orange);
+    transform: translateX(2px);
+  }
+}
+
+@media (max-width: 560px) {
+  .about-service-mosaic__tile>span {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    min-height: 54px;
+    padding: 10px 10px 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  .about-service-mosaic__tile>span::after {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+    background-size: 16px 16px;
+  }
+}

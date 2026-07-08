@@ -682,21 +682,7 @@ section[aria-labelledby="isTitle"] .section-heading {
   text-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
 }
 
-.about-service-mosaic__tile span::after {
-  content: "↗";
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  flex: 0 0 auto;
-  color: var(--color-brown-950);
-  background: var(--color-yellow);
-  font-size: 1.1rem;
-  line-height: 1;
-  transform: translate(8px, 8px);
-  opacity: 0;
-  transition: transform 240ms ease, opacity 240ms ease;
-}
+
 
 .about-service-mosaic__tile:hover img {
   transform: scale(1.07);
@@ -711,10 +697,6 @@ section[aria-labelledby="isTitle"] .section-heading {
   transform: scaleX(1);
 }
 
-.about-service-mosaic__tile:hover span::after {
-  transform: translate(0, 0);
-  opacity: 1;
-}
 
 @media (max-width: 1080px) {
   .about-service-mosaic__grid {
