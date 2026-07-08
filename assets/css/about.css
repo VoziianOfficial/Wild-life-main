@@ -1247,7 +1247,6 @@ section[aria-labelledby="isTitle"] .section-heading {
   }
 }
 
-/* Wider heading for About services cards */
 .about-services-cards__head {
   max-width: 1280px !important;
   margin: 0 auto 54px !important;
