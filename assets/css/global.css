@@ -597,7 +597,6 @@ body {
 .mobile-menu__contact a {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid rgba(248, 243, 234, 0.14);
