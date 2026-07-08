@@ -848,7 +848,7 @@ section[aria-labelledby="discussTitle"] .section-heading {
   width: 48%;
   background:
     linear-gradient(90deg, rgba(248, 243, 234, 0.9), rgba(248, 243, 234, 0.7)),
-    url("../images/wildlife-choice-bg.jpg") center / cover no-repeat;
+    url("../images/services-start-wildlife.jpg") center / cover no-repeat;
   opacity: 0.36;
   pointer-events: none;
 }

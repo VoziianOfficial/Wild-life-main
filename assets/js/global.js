@@ -516,19 +516,285 @@
     });
   }
 
-  function initLibraries() {
-    if (window.AOS) {
-      window.AOS.init({
-        duration: 720,
-        easing: "ease-out-cubic",
-        once: true,
-        offset: 80,
-        disable: window.matchMedia("(max-width: 520px)").matches ? "phone" : false
-      });
-    } else {
-      document.querySelectorAll("[data-aos]").forEach((node) => node.classList.add("aos-animate"));
+  const revealState = {
+    compactQuery: window.matchMedia("(max-width: 1024px)"),
+    reducedMotionQuery: window.matchMedia("(prefers-reduced-motion: reduce)"),
+    observer: null
+  };
+
+  const revealClasses = ["reveal", "reveal-up", "reveal-left", "reveal-right", "reveal-zoom", "reveal-soft", "is-visible"];
+  const revealBlockedSelector = [
+    "body",
+    "main",
+    "section",
+    ".container",
+    ".container-wide",
+    ".site-header",
+    ".site-footer",
+    ".mobile-menu",
+    ".swiper",
+    ".swiper-wrapper",
+    ".swiper-slide",
+    ".lacerta-request-voices__swiper",
+    ".lacerta-parallax-stats",
+    ".lacerta-parallax-stats__bg",
+    ".lacerta-parallax-stats__overlay",
+    ".parallax-banner",
+    ".parallax-banner__bg",
+    ".lacerta-contact-banner__marquee-track",
+    ".home-hero__slide",
+    ".service-sticky-overview",
+    ".service-sticky-overview__grid",
+    ".service-sticky-overview__media",
+    ".service-sticky-overview__photo",
+    ".legal-sidebar"
+  ].join(",");
+
+  function prefersReducedMotion() {
+    return revealState.reducedMotionQuery.matches;
+  }
+
+  function isCompactReveal() {
+    return revealState.compactQuery.matches;
+  }
+
+  function bindMediaQuery(query, handler) {
+    if (typeof query.addEventListener === "function") {
+      query.addEventListener("change", handler);
+      return;
     }
 
+    if (typeof query.addListener === "function") {
+      query.addListener(handler);
+    }
+  }
+
+  function selectRevealTargets(selector, root) {
+    return Array.from((root || document).querySelectorAll(selector));
+  }
+
+  function clearRevealAnimations(root) {
+    selectRevealTargets(".reveal, .is-visible", root).forEach((node) => {
+      node.classList.remove(...revealClasses);
+      node.style.removeProperty("--reveal-delay");
+    });
+  }
+
+  function canReveal(node) {
+    if (!node || node.matches(revealBlockedSelector)) return false;
+    if (node.closest(".site-header, .site-footer, .mobile-menu, .swiper-wrapper, .lacerta-request-voices__swiper")) return false;
+    if (node.closest(".lacerta-parallax-stats__bg, .parallax-banner__bg, .home-hero__slide")) return false;
+    return true;
+  }
+
+  function revealVariant(variant) {
+    if (isCompactReveal() && (variant === "reveal-left" || variant === "reveal-right")) {
+      return "reveal-up";
+    }
+
+    if (isCompactReveal() && variant === "reveal-zoom") {
+      return "reveal-soft";
+    }
+
+    return variant || "reveal-up";
+  }
+
+  function addReveal(node, variant, delay = 0) {
+    if (!canReveal(node)) return;
+
+    node.classList.add("reveal", revealVariant(variant));
+    node.style.setProperty("--reveal-delay", `${Math.min(Math.max(delay, 0), 240)}ms`);
+  }
+
+  function staggerNodes(nodes, variant, step = 60, startDelay = 0) {
+    nodes.forEach((node, index) => {
+      addReveal(node, variant, startDelay + index * step);
+    });
+  }
+
+  function staggerSelector(selector, variant, step = 60, startDelay = 0, root) {
+    staggerNodes(selectRevealTargets(selector, root), variant, step, startDelay);
+  }
+
+  function animateChildren(selector, variant, step = 60, startDelay = 0, root) {
+    selectRevealTargets(selector, root).forEach((parent) => {
+      staggerNodes(Array.from(parent.children), variant, step, startDelay);
+    });
+  }
+
+  function sequence(definitions, root) {
+    definitions.forEach(({ selector, variant, delay = 0 }) => {
+      selectRevealTargets(selector, root).forEach((node) => addReveal(node, variant, delay));
+    });
+  }
+
+  function assignRevealAnimations(root = document) {
+    const main = root.querySelector("main") || root;
+    const up = "reveal-up";
+    const left = "reveal-left";
+    const right = "reveal-right";
+    const zoom = "reveal-zoom";
+    const soft = "reveal-soft";
+
+    sequence([
+      { selector: ".page-hero__content > .eyebrow", variant: soft, delay: 0 },
+      { selector: ".page-hero__content > h1", variant: up, delay: 60 },
+      { selector: ".page-hero__content > .page-hero__copy", variant: up, delay: 120 },
+      { selector: ".page-hero__content > .button-row", variant: up, delay: 180 },
+      { selector: ".home-hero__content > .eyebrow", variant: soft, delay: 0 },
+      { selector: ".home-hero__content > h1", variant: up, delay: 60 },
+      { selector: ".home-hero__content > .home-hero__copy", variant: up, delay: 120 },
+      { selector: ".home-hero__content > .button-row", variant: up, delay: 180 },
+      { selector: ".home-hero__content > .hero-pills", variant: up, delay: 220 },
+      { selector: ".hero-visual-card", variant: zoom, delay: 140 },
+      { selector: ".lacerta-parallax-stats__content > .lacerta-parallax-stats__kicker", variant: soft, delay: 0 },
+      { selector: ".lacerta-parallax-stats__content > h2", variant: up, delay: 70 },
+      { selector: ".lacerta-parallax-stats__line", variant: soft, delay: 120 },
+      { selector: ".intro-media", variant: zoom, delay: 100 },
+      { selector: ".lacerta-editorial__photo--large", variant: zoom, delay: 80 },
+      { selector: ".lacerta-editorial__photo--wide", variant: zoom, delay: 140 },
+      { selector: ".faq-switch__image", variant: zoom, delay: 80 },
+      { selector: ".story-photo", variant: zoom, delay: 80 },
+      { selector: ".mission-photos", variant: zoom, delay: 80 },
+      { selector: ".about-faq__image", variant: zoom, delay: 80 },
+      { selector: ".about-trust-board__photo", variant: zoom, delay: 120 },
+      { selector: ".lacerta-contact-banner__form-card", variant: left, delay: 120 },
+      { selector: ".safety-photos", variant: zoom, delay: 100 },
+      { selector: ".showcase-photo", variant: zoom, delay: 80 },
+      { selector: ".service-start-split__image", variant: zoom, delay: 100 },
+      { selector: ".service-overlap-stats__image img", variant: zoom, delay: 80 },
+      { selector: ".service-overlap-stats__panel", variant: left, delay: 100 },
+      { selector: ".lacerta-choice-panel__card", variant: left, delay: 120 },
+      { selector: ".legal-disclaimer", variant: up, delay: 60 },
+      { selector: ".prefooter-cta__content", variant: up, delay: 0 },
+      { selector: ".prefooter-cta__actions", variant: up, delay: 100 }
+    ], main);
+
+    animateChildren(".lacerta-editorial__head", up, 60, 0, main);
+    animateChildren(".popular-wildlife-services__head", up, 60, 0, main);
+    animateChildren(".lacerta-discover__head", up, 60, 0, main);
+    animateChildren(".lacerta-request-voices__head", up, 60, 0, main);
+    animateChildren(".all-services-role__head", up, 60, 0, main);
+    animateChildren(".lacerta-gallery-mosaic__head", up, 60, 0, main);
+    animateChildren(".services-why-use__head", up, 60, 0, main);
+    animateChildren(".all-services-discover__head", up, 60, 0, main);
+    animateChildren(".about-service-mosaic__head", up, 60, 0, main);
+    animateChildren(".about-services-cards__head", up, 60, 0, main);
+    animateChildren(".about-trust-board__intro", up, 60, 0, main);
+    animateChildren(".contact-why-use__head", up, 60, 0, main);
+    animateChildren(".lacerta-contact-banner__left", up, 60, 0, main);
+    animateChildren(".service-sticky-overview__intro", up, 60, 0, main);
+    animateChildren(".lacerta-article-cards__head", up, 60, 0, main);
+
+    sequence([
+      { selector: ".intro-content > .section-kicker", variant: soft, delay: 0 },
+      { selector: ".intro-content > .section-heading", variant: up, delay: 60 },
+      { selector: ".intro-content > .section-copy", variant: up, delay: 120 },
+      { selector: ".intro-content > .button-row", variant: up, delay: 180 },
+      { selector: "section[aria-labelledby='situationsTitle'] > .container-wide > .section-kicker", variant: soft, delay: 0 },
+      { selector: "section[aria-labelledby='situationsTitle'] > .container-wide > .section-heading", variant: up, delay: 60 },
+      { selector: "section[aria-labelledby='storyTitle'] .about-story > div:first-child > .section-kicker", variant: soft, delay: 0 },
+      { selector: "section[aria-labelledby='storyTitle'] .about-story > div:first-child > .section-heading", variant: right, delay: 60 },
+      { selector: "section[aria-labelledby='missionTitle'] .mission-grid > div:last-child > .section-kicker", variant: soft, delay: 0 },
+      { selector: "section[aria-labelledby='missionTitle'] .mission-grid > div:last-child > .section-heading", variant: left, delay: 60 },
+      { selector: "section[aria-labelledby='isTitle'] > .container > .section-kicker", variant: soft, delay: 0 },
+      { selector: "section[aria-labelledby='isTitle'] > .container > .section-heading", variant: up, delay: 60 },
+      { selector: "section[aria-labelledby='questionsTitle'] > .container > .section-kicker", variant: soft, delay: 0 },
+      { selector: "section[aria-labelledby='questionsTitle'] > .container > .section-heading", variant: up, delay: 60 },
+      { selector: "section[aria-labelledby='safetyTitle'] .container-wide > div:first-child > .section-kicker", variant: soft, delay: 0 },
+      { selector: "section[aria-labelledby='safetyTitle'] .container-wide > div:first-child > .section-heading", variant: right, delay: 60 },
+      { selector: "section[aria-labelledby='contactFaqTitle'] > .container > .section-kicker", variant: soft, delay: 0 },
+      { selector: "section[aria-labelledby='contactFaqTitle'] > .container > .section-heading", variant: up, delay: 60 },
+      { selector: "section[aria-labelledby='faqTitle'] .faq-switch > div:last-child > .section-kicker", variant: soft, delay: 0 },
+      { selector: "section[aria-labelledby='faqTitle'] .faq-switch > div:last-child > .section-heading", variant: left, delay: 60 },
+      { selector: "section[aria-labelledby='aboutFaqTitle'] .about-faq > div:last-child > .section-kicker", variant: soft, delay: 0 },
+      { selector: "section[aria-labelledby='aboutFaqTitle'] .about-faq > div:last-child > .section-heading", variant: left, delay: 60 }
+    ], main);
+
+    staggerSelector(".intro-content .line-list li", up, 55, 150, main);
+    staggerSelector("section[aria-labelledby='situationsTitle'] .gallery-tile", up, 60, 120, main);
+    staggerSelector(".popular-wildlife-services__grid > *", up, 60, 60, main);
+    staggerSelector(".lacerta-parallax-stats__grid > *", up, 55, 100, main);
+    staggerSelector(".lacerta-discover__grid > *", up, 60, 60, main);
+    staggerSelector(".accordion > .accordion-item", up, 55, 100, main);
+    staggerSelector(".all-services-discover__grid > *", up, 60, 60, main);
+    staggerSelector(".showcase-list > *", up, 55, 90, main);
+    staggerSelector(".lacerta-gallery-mosaic__grid > *", up, 55, 60, main);
+    staggerSelector(".services-why-use__grid > *", up, 55, 60, main);
+    staggerSelector(".about-service-mosaic__grid > *", up, 55, 60, main);
+    staggerSelector(".about-yellow-features__grid > *", up, 60, 60, main);
+    staggerSelector(".about-services-cards__grid > *", up, 60, 60, main);
+    staggerSelector(".clarity-cards > *", up, 55, 50, main);
+    staggerSelector(".lacerta-contact-banner__meta > *", up, 55, 100, main);
+    staggerSelector(".contact-why-use__grid > *", up, 55, 60, main);
+    staggerSelector(".discuss-grid > *", up, 55, 50, main);
+    staggerSelector(".service-sticky-overview__list > *", up, 55, 60, main);
+    staggerSelector(".service-trust-strip__grid > *", up, 60, 60, main);
+    staggerSelector(".service-overlap-stats__numbers > *", up, 55, 120, main);
+    staggerSelector(".lacerta-article-cards__grid > *", up, 60, 60, main);
+    staggerSelector(".legal-content > .legal-block", up, 55, 50, main);
+    staggerSelector(".provider-tab-list > .provider-tab", up, 50, 100, main);
+
+    sequence([
+      { selector: ".lacerta-editorial__side > p:nth-of-type(1)", variant: left, delay: 80 },
+      { selector: ".lacerta-editorial__side > p:nth-of-type(2)", variant: left, delay: 130 },
+      { selector: ".lacerta-editorial__side > .button", variant: left, delay: 180 },
+      { selector: "section[aria-labelledby='storyTitle'] .about-story > div:first-child > .section-copy:nth-of-type(1)", variant: right, delay: 120 },
+      { selector: "section[aria-labelledby='storyTitle'] .about-story > div:first-child > .section-copy:nth-of-type(2)", variant: right, delay: 170 },
+      { selector: "section[aria-labelledby='missionTitle'] .mission-grid > div:last-child > .section-copy", variant: left, delay: 120 },
+      { selector: "section[aria-labelledby='missionTitle'] .mission-grid > div:last-child > .line-list", variant: left, delay: 180 },
+      { selector: "section[aria-labelledby='isTitle'] .comparison-column:not(.comparison-column--not)", variant: right, delay: 80 },
+      { selector: "section[aria-labelledby='isTitle'] .comparison-column--not", variant: left, delay: 120 },
+      { selector: ".provider-tabs > div:last-child", variant: left, delay: 160 },
+      { selector: ".lacerta-choice-panel__content h2", variant: right, delay: 0 },
+      { selector: ".lacerta-choice-panel__body", variant: right, delay: 70 },
+      { selector: ".lacerta-choice-panel__signature", variant: right, delay: 130 }
+    ], main);
+  }
+
+  function observeRevealAnimations(root = document) {
+    if (revealState.observer) {
+      revealState.observer.disconnect();
+      revealState.observer = null;
+    }
+
+    if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
+      selectRevealTargets(".reveal", root).forEach((node) => node.classList.add("is-visible"));
+      return;
+    }
+
+    revealState.observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, {
+      root: null,
+      threshold: 0.12,
+      rootMargin: "0px 0px -8% 0px"
+    });
+
+    selectRevealTargets(".reveal", root).forEach((node) => {
+      revealState.observer.observe(node);
+    });
+  }
+
+  function initRevealAnimations(root = document) {
+    if (revealState.observer) {
+      revealState.observer.disconnect();
+      revealState.observer = null;
+    }
+
+    clearRevealAnimations(root);
+
+    if (prefersReducedMotion()) return;
+
+    assignRevealAnimations(root);
+    observeRevealAnimations(root);
+  }
+
+  function initLibraries() {
     if (window.lucide) {
       window.lucide.createIcons({
         attrs: {
@@ -536,6 +802,8 @@
         }
       });
     }
+
+    initRevealAnimations(document);
   }
 
   function init() {
@@ -550,6 +818,9 @@
     initAccordions();
     initScrollSliders();
     initLibraries();
+    window.addEventListener("load", () => initRevealAnimations(document), { once: true });
+    bindMediaQuery(revealState.compactQuery, () => initRevealAnimations(document));
+    bindMediaQuery(revealState.reducedMotionQuery, () => initRevealAnimations(document));
   }
 
   window.Lacerta = {
@@ -558,7 +829,9 @@
     hydrateConfigText,
     initAccordions,
     initScrollSliders,
-    initLibraries
+    initLibraries,
+    initRevealAnimations,
+    rebuildReveal: () => initRevealAnimations(document)
   };
 
   document.addEventListener("DOMContentLoaded", init);
