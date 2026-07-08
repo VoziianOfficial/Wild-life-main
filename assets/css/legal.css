@@ -6,7 +6,7 @@
 .legal-hero::before {
   background:
     linear-gradient(90deg, rgba(26, 16, 11, 0.95), rgba(36, 21, 13, 0.72)),
-    url("../images/other-site-images.jpg") center / cover no-repeat;
+    url("../images/other-site-images.webp") center / cover no-repeat;
 }
 
 .legal-layout {

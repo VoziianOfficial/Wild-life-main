@@ -19,15 +19,15 @@
 }
 
 .home-hero__slide--home {
-  --slide-image: url("../images/hero-home.jpg");
+  --slide-image: url("../images/hero-home.webp");
 }
 
 .home-hero__slide--raccoon {
-  --slide-image: url("../images/hero-raccoon.jpg");
+  --slide-image: url("../images/hero-raccoon.webp");
 }
 
 .home-hero__slide--yard {
-  --slide-image: url("../images/gallery-3.jpg");
+  --slide-image: url("../images/gallery-3.webp");
 }
 
 .home-hero__slide::after {
@@ -458,7 +458,7 @@ section[aria-labelledby="situationsTitle"] .section-heading {
   inset: -20% 0;
   background:
     linear-gradient(90deg, rgba(26, 16, 11, 0.9), rgba(26, 16, 11, 0.34)),
-    url("../images/gallery-3.jpg") center / cover no-repeat;
+    url("../images/gallery-3.webp") center / cover no-repeat;
   transform: translateY(var(--parallax-shift, 0));
   will-change: transform;
 }
@@ -922,7 +922,7 @@ section[aria-labelledby="situationsTitle"] .section-heading {
   inset: -14% 0;
   z-index: 0;
   background:
-    url("../images/cta-wildlife.jpg") center / cover no-repeat;
+    url("../images/cta-wildlife.webp") center / cover no-repeat;
   will-change: transform;
   transform: translateY(0);
 }

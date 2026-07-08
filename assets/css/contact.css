@@ -1,5 +1,5 @@
 .contact-hero {
-  --hero-image: url("../images/hero-contact.jpg");
+  --hero-image: url("../images/hero-contact.webp");
 }
 
 .clarity-cards {
@@ -63,7 +63,7 @@
   inset: 0;
   background:
     linear-gradient(180deg, rgba(26, 16, 11, 0.72), rgba(26, 16, 11, 0.94)),
-    url("../images/gallery-5.jpg") center / cover no-repeat;
+    url("../images/gallery-5.webp") center / cover no-repeat;
   opacity: 0.58;
 }
 

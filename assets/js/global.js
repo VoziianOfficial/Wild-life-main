@@ -336,6 +336,11 @@
     const scope = root || document;
     const pairs = buildConfigReplacementPairs();
 
+    updateContactLinksAndForms(scope);
+    replaceTextNodes(scope.body || scope, pairs);
+    replaceElementAttributes(scope, pairs);
+    updateHeadConfig(pairs);
+
     scope.querySelectorAll("[data-config]").forEach((node) => {
       node.textContent = getConfig(node.getAttribute("data-config"));
     });
@@ -351,11 +356,6 @@
     scope.querySelectorAll("[data-company-address]").forEach((node) => {
       node.textContent = getFullAddress();
     });
-
-    updateContactLinksAndForms(scope);
-    replaceTextNodes(scope.body || scope, pairs);
-    replaceElementAttributes(scope, pairs);
-    updateHeadConfig(pairs);
   }
 
   function setActiveNav() {

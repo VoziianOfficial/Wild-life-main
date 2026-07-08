@@ -1,25 +1,25 @@
 .service-page-raccoon {
-  --hero-image: url("../images/hero-raccoon.jpg");
+  --hero-image: url("../images/hero-raccoon.webp");
 }
 
 .service-page-squirrel {
-  --hero-image: url("../images/hero-squirrel.jpg");
+  --hero-image: url("../images/hero-squirrel.webp");
 }
 
 .service-page-bat {
-  --hero-image: url("../images/hero-bat.jpg");
+  --hero-image: url("../images/hero-bat.webp");
 }
 
 .service-page-bird {
-  --hero-image: url("../images/hero-bird.jpg");
+  --hero-image: url("../images/hero-bird.webp");
 }
 
 .service-page-snake {
-  --hero-image: url("../images/hero-snake.jpg");
+  --hero-image: url("../images/hero-snake.webp");
 }
 
 .service-page-attic {
-  --hero-image: url("../images/hero-attic.jpg");
+  --hero-image: url("../images/hero-attic.webp");
 }
 
 .service-overview-grid {
@@ -848,7 +848,7 @@ section[aria-labelledby="discussTitle"] .section-heading {
   width: 48%;
   background:
     linear-gradient(90deg, rgba(248, 243, 234, 0.9), rgba(248, 243, 234, 0.7)),
-    url("../images/services-start-wildlife.jpg") center / cover no-repeat;
+    url("../images/services-start-wildlife.webp") center / cover no-repeat;
   opacity: 0.36;
   pointer-events: none;
 }

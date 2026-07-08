@@ -23,37 +23,37 @@ window.LACERTA_CONFIG = {
     {
       title: "Raccoon Removal",
       url: "raccoon-removal.html",
-      image: "assets/images/service-raccoon.jpg",
+      image: "assets/images/service-raccoon.webp",
       description: "Compare provider options for raccoon concerns around attics, crawlspaces, roofs, and exterior entry points."
     },
     {
       title: "Squirrel Removal",
       url: "squirrel-removal.html",
-      image: "assets/images/service-squirrel.jpg",
+      image: "assets/images/service-squirrel.webp",
       description: "Find local provider options for squirrel activity, nesting concerns, and possible access points."
     },
     {
       title: "Bat Removal",
       url: "bat-removal.html",
-      image: "assets/images/service-bat.jpg",
+      image: "assets/images/service-bat.webp",
       description: "Get matched with providers who can discuss bat-related concerns, exclusion options, and local rules."
     },
     {
       title: "Bird Control",
       url: "bird-control.html",
-      image: "assets/images/service-bird.jpg",
+      image: "assets/images/service-bird.webp",
       description: "Compare available providers for bird nesting, roosting, and property protection concerns."
     },
     {
       title: "Snake Removal",
       url: "snake-removal.html",
-      image: "assets/images/service-snake.jpg",
+      image: "assets/images/service-snake.webp",
       description: "Request provider options for snake concerns around yards, garages, sheds, and exterior spaces."
     },
     {
       title: "Attic Wildlife Cleanup",
       url: "attic-wildlife-cleanup.html",
-      image: "assets/images/service-attic.jpg",
+      image: "assets/images/service-attic.webp",
       description: "Compare providers for wildlife-related attic or crawlspace cleanup, odor, and contamination concerns."
     }
   ],
