@@ -108,8 +108,21 @@
                 <span>Phone number</span>
                 <input type="tel" name="phone" placeholder="Your phone number" required>
               </label>
-    
+
               <label>
+                <span>Service</span>
+                <select name="service" required>
+                  <option value="" selected disabled>Select a service</option>
+                  <option value="bat-removal">Bat Removal</option>
+                  <option value="raccoon-removal">Raccoon Removal</option>
+                  <option value="squirrel-removal">Squirrel Removal</option>
+                  <option value="bird-control">Bird Control</option>
+                  <option value="snake-removal">Snake Removal</option>
+                  <option value="attic-wildlife-cleanup">Attic Wildlife Cleanup</option>
+                </select>
+              </label>
+    
+              <label class="lacerta-contact-banner__form-message">
                 <span>Message</span>
                 <textarea name="message" rows="5" placeholder="Briefly describe the wildlife concern" required></textarea>
               </label>
