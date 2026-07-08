@@ -121,7 +121,6 @@
             <h2>Company</h2>
             <p>${config.company.legalName}</p>
             <p>Company ID: ${config.company.companyId}</p>
-            <p>${config.company.address}<br>${config.company.cityStateZip}<br>${config.company.country}</p>
             <p>Service area: ${config.company.serviceArea}</p>
           </div>
           <div class="footer-col">
