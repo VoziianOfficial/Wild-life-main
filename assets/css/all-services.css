@@ -727,11 +727,12 @@
     margin-right: auto;
   }
 
-  .services-auto-showcase__head h2 {
-    font-size: 2.05rem;
-    line-height: 1.08;
-  }
-
+ @media (max-width: 640px) {
+   .service-start-split h2 {
+     font-size: 1.9rem;
+     line-height: 1.08;
+   }
+ }
   .services-auto-card {
     flex-basis: 235px;
     height: 340px;
