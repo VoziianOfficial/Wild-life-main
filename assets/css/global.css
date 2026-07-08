@@ -1279,6 +1279,28 @@ body:not([data-page="about"]) .page-hero h1 {
     padding: 112px 0 74px;
   }
 
+  .page-hero {
+    text-align: center;
+  }
+
+  .page-hero__content,
+  body:not([data-page="about"]) .page-hero__content {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .page-hero h1,
+  body:not([data-page="about"]) .page-hero h1,
+  .page-hero__copy {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .hero-pills {
+    justify-content: center;
+  }
+
   body:not([data-page="about"]) .page-hero h1 {
     font-size: 3.5rem;
   }
@@ -1382,6 +1404,15 @@ body:not([data-page="about"]) .page-hero h1 {
     line-height: 1.04;
   }
 
+  .page-hero__content,
+  body:not([data-page="about"]) .page-hero__content {
+    max-width: 100%;
+  }
+
+  .hero-pills {
+    justify-content: center;
+  }
+
   .button-row,
   .prefooter-cta__actions {
     flex-direction: column;
@@ -1443,8 +1474,56 @@ body:not([data-page="about"]) .page-hero h1 {
     grid-auto-columns: minmax(245px, 82vw);
   }
 
-  .footer-grid {
+.footer-grid {
     grid-template-columns: 1fr;
     padding-top: 58px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section-heading,
+  .about-service-mosaic__head h2,
+  .about-trust-board__intro h2,
+  .about-services-cards__head h2,
+  .lacerta-editorial__head h2,
+  .popular-wildlife-services__head h2,
+  .lacerta-discover__head h2,
+  .lacerta-request-voices__head h2,
+  .all-services-role__head h2,
+  .services-auto-showcase__head h2,
+  .lacerta-gallery-mosaic__head h2,
+  .services-why-use__head h2,
+  .all-services-discover__head h2 {
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .section-copy,
+  .about-service-mosaic__head,
+  .about-trust-board__intro,
+  .about-services-cards__head,
+  .lacerta-editorial__head,
+  .popular-wildlife-services__head,
+  .lacerta-discover__head,
+  .lacerta-request-voices__head,
+  .all-services-role__head,
+  .services-auto-showcase__head,
+  .lacerta-gallery-mosaic__head,
+  .services-why-use__head,
+  .all-services-discover__head {
+    text-align: center !important;
+  }
+
+  .section-kicker,
+  .eyebrow,
+  .lacerta-discover__head span,
+  .lacerta-request-voices__head span,
+  .about-service-mosaic__head span,
+  .services-auto-showcase__head span,
+  .lacerta-gallery-mosaic__head span,
+  .all-services-discover__head span {
+    justify-content: center !important;
   }
 }

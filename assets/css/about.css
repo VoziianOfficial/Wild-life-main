@@ -11,9 +11,7 @@
   align-items: center;
 }
 
-section[aria-labelledby="storyTitle"] .about-story {
-  grid-template-columns: 0.92fr 1.08fr;
-}
+
 
 .story-photo {
   aspect-ratio: 0.92;
@@ -303,6 +301,27 @@ section[aria-labelledby="isTitle"] .section-heading {
     grid-template-columns: 1fr;
   }
 
+  section[aria-labelledby="storyTitle"] .about-story,
+  section[aria-labelledby="questionsTitle"] .container,
+  section[aria-labelledby="isTitle"] .container {
+    gap: 34px;
+  }
+
+  section[aria-labelledby="storyTitle"] .about-story > div,
+  section[aria-labelledby="storyTitle"] .story-photo {
+    max-width: 760px;
+    margin-inline: auto;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .provider-tab-panel {
+    min-height: auto;
+  }
+
   .concern-type-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -324,6 +343,24 @@ section[aria-labelledby="isTitle"] .section-heading {
     grid-template-columns: 1fr;
   }
 
+  .mission-grid > .mission-photos {
+    order: 2;
+  }
+
+  .mission-grid > div:not(.mission-photos) {
+    order: 1;
+  }
+
+  section[aria-labelledby="storyTitle"] .about-story,
+  section[aria-labelledby="questionsTitle"] .container,
+  section[aria-labelledby="isTitle"] .container {
+    gap: 28px;
+  }
+
+  .story-photo {
+    width: 100%;
+  }
+
   .mission-photos {
     min-height: 500px;
   }
@@ -338,6 +375,30 @@ section[aria-labelledby="isTitle"] .section-heading {
 
   .about-step {
     grid-template-columns: 42px 1fr;
+  }
+
+  .comparison-column h3 {
+    font-size: 1.34rem;
+  }
+
+  .comparison-row {
+    padding: 14px 0;
+  }
+
+  .provider-tabs {
+    gap: 20px;
+  }
+
+  .provider-tab {
+    padding: 14px;
+  }
+
+  .provider-tab-panel {
+    padding: 24px 20px;
+  }
+
+  .provider-tab-panel h3 {
+    font-size: 1.6rem;
   }
 
   .statement-banner h2 {
