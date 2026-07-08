@@ -162,14 +162,30 @@
 }
 
 section[aria-labelledby="contactFaqTitle"] .section-heading {
-  width: fit-content;
-  max-width: none;
-  margin-inline: auto;
-  white-space: nowrap;
   text-decoration: underline;
   text-decoration-color: var(--color-yellow);
   text-decoration-thickness: 4px;
   text-underline-offset: 12px;
+}
+
+@media (min-width: 1025px) {
+  section[aria-labelledby="contactFaqTitle"] .section-heading {
+    width: fit-content;
+    max-width: none;
+    margin-inline: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1024px) {
+  section[aria-labelledby="contactFaqTitle"] .section-heading {
+    width: 100%;
+    max-width: 560px;
+    margin-inline: auto;
+    white-space: normal;
+    text-align: center;
+    text-wrap: balance;
+  }
 }
 
 .concern-buttons {
@@ -570,6 +586,20 @@ section[aria-labelledby="contactFaqTitle"] .section-heading {
 
   .lacerta-contact-banner__left {
     min-height: 280px;
+    max-width: 760px;
+    margin-inline: auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  .lacerta-contact-banner__kicker {
+    width: auto;
+    justify-content: center;
+  }
+
+  .lacerta-contact-banner__left h2,
+  .lacerta-contact-banner__left p {
+    margin-inline: auto;
   }
 }
 
@@ -965,5 +995,36 @@ section[aria-labelledby="contactFaqTitle"] .section-heading {
 @media (min-width: 901px) {
   .contact-why-use__head h2 {
     margin-left: 52px;
+  }
+}
+
+@media (min-width: 981px) {
+  .contact-why-use__head h2 {
+    margin-left: 42px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 980px) {
+  .contact-why-use__head {
+    text-align: center;
+  }
+
+  .contact-why-use__kicker {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-why-use__head h2 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .contact-why-use__head>p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 }
