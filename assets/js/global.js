@@ -154,18 +154,209 @@
     `;
   }
 
-  function hydrateConfigText() {
-    document.querySelectorAll("[data-config]").forEach((node) => {
+  function escapeRegExp(value) {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function compact(value) {
+    return String(value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function getFullAddress() {
+    return [
+      config.company && config.company.address,
+      config.company && config.company.cityStateZip,
+      config.company && config.company.country
+    ].filter(Boolean).join(", ");
+  }
+
+  function uniqueList(list) {
+    return Array.from(new Set((list || []).map(compact).filter(Boolean)));
+  }
+
+  function buildConfigReplacementPairs() {
+    const replace = config.replace || {};
+
+    const fullAddress = getFullAddress();
+
+    const pairs = [
+      ...uniqueList(replace.brandNames).map((oldValue) => [oldValue, config.brand && config.brand.name]),
+
+      ...uniqueList(replace.legalNames).map((oldValue) => [oldValue, config.company && config.company.legalName]),
+
+      ...uniqueList(replace.companyIds).map((oldValue) => [oldValue, config.company && config.company.companyId]),
+
+      ...uniqueList(replace.phones).map((oldValue) => [oldValue, config.contact && config.contact.phoneDisplay]),
+
+      ...uniqueList(replace.emails).map((oldValue) => [oldValue, config.contact && config.contact.email]),
+
+      ...uniqueList(replace.taglines).map((oldValue) => [oldValue, config.brand && config.brand.tagline]),
+
+      ...uniqueList(replace.addresses).map((oldValue) => {
+        if (oldValue.includes(",") || oldValue.includes("Street") || oldValue.includes("Way")) {
+          return [oldValue, fullAddress];
+        }
+
+        return [oldValue, fullAddress];
+      }),
+
+      ["Company ID: LCW-US-48291", `Company ID: ${config.company && config.company.companyId}`],
+      ["Service area: Selected local markets", `Service area: ${config.company && config.company.serviceArea}`],
+
+      ["© 2026 Lacerta Matching Group LLC. All rights reserved.", config.footer && config.footer.copyright]
+    ];
+
+    return pairs
+      .filter(([oldValue, newValue]) => compact(oldValue) && compact(newValue))
+      .sort((a, b) => String(b[0]).length - String(a[0]).length);
+  }
+
+  function replaceConfigValue(value, pairs) {
+    if (!value || typeof value !== "string") return value;
+
+    let output = value;
+
+    pairs.forEach(([oldValue, newValue]) => {
+      if (!oldValue || !newValue || oldValue === newValue) return;
+
+      output = output.replace(
+        new RegExp(escapeRegExp(oldValue), "g"),
+        String(newValue)
+      );
+    });
+
+    return output;
+  }
+
+  function replaceTextNodes(root, pairs) {
+    const walker = document.createTreeWalker(
+      root || document.body,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode(node) {
+          const parent = node.parentElement;
+
+          if (!parent) return NodeFilter.FILTER_REJECT;
+
+          if (parent.closest("script, style, noscript, svg")) {
+            return NodeFilter.FILTER_REJECT;
+          }
+
+          if (!compact(node.nodeValue)) {
+            return NodeFilter.FILTER_REJECT;
+          }
+
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      }
+    );
+
+    const textNodes = [];
+
+    while (walker.nextNode()) {
+      textNodes.push(walker.currentNode);
+    }
+
+    textNodes.forEach((node) => {
+      const nextValue = replaceConfigValue(node.nodeValue, pairs);
+
+      if (nextValue !== node.nodeValue) {
+        node.nodeValue = nextValue;
+      }
+    });
+  }
+
+  function replaceElementAttributes(root, pairs) {
+    const attributes = [
+      "alt",
+      "title",
+      "aria-label",
+      "placeholder",
+      "content",
+      "value"
+    ];
+
+    (root || document).querySelectorAll("*").forEach((element) => {
+      attributes.forEach((attribute) => {
+        if (!element.hasAttribute(attribute)) return;
+
+        const currentValue = element.getAttribute(attribute);
+        const nextValue = replaceConfigValue(currentValue, pairs);
+
+        if (nextValue !== currentValue) {
+          element.setAttribute(attribute, nextValue);
+        }
+      });
+    });
+  }
+
+  function updateContactLinksAndForms(root) {
+    const scope = root || document;
+
+    if (config.contact && config.contact.phoneHref) {
+      scope.querySelectorAll('a[href^="tel:"], [data-phone-href]').forEach((link) => {
+        link.setAttribute("href", config.contact.phoneHref);
+      });
+    }
+
+    if (config.contact && config.contact.emailHref) {
+      scope.querySelectorAll('a[href^="mailto:"], [data-email-href]').forEach((link) => {
+        link.setAttribute("href", config.contact.emailHref);
+      });
+    }
+
+    if (config.form && config.form.endpoint) {
+      scope.querySelectorAll("form").forEach((form) => {
+        form.setAttribute("action", config.form.endpoint);
+      });
+    }
+  }
+
+  function updateHeadConfig(pairs) {
+    document.title = replaceConfigValue(document.title, pairs);
+
+    document.querySelectorAll('meta[name="description"], meta[property="og:title"], meta[property="og:description"]').forEach((meta) => {
+      const currentValue = meta.getAttribute("content");
+      const nextValue = replaceConfigValue(currentValue, pairs);
+
+      if (nextValue !== currentValue) {
+        meta.setAttribute("content", nextValue);
+      }
+    });
+
+    document.querySelectorAll('script[type="application/ld+json"]').forEach((script) => {
+      const nextValue = replaceConfigValue(script.textContent, pairs);
+
+      if (nextValue !== script.textContent) {
+        script.textContent = nextValue;
+      }
+    });
+  }
+
+  function hydrateConfigText(root) {
+    const scope = root || document;
+    const pairs = buildConfigReplacementPairs();
+
+    scope.querySelectorAll("[data-config]").forEach((node) => {
       node.textContent = getConfig(node.getAttribute("data-config"));
     });
 
-    document.querySelectorAll("[data-phone-href]").forEach((node) => {
-      node.setAttribute("href", config.contact.phoneHref);
+    scope.querySelectorAll("[data-company-phone]").forEach((node) => {
+      node.textContent = config.contact.phoneDisplay || "";
     });
 
-    document.querySelectorAll("[data-email-href]").forEach((node) => {
-      node.setAttribute("href", config.contact.emailHref);
+    scope.querySelectorAll("[data-company-email]").forEach((node) => {
+      node.textContent = config.contact.email || "";
     });
+
+    scope.querySelectorAll("[data-company-address]").forEach((node) => {
+      node.textContent = getFullAddress();
+    });
+
+    updateContactLinksAndForms(scope);
+    replaceTextNodes(scope.body || scope, pairs);
+    replaceElementAttributes(scope, pairs);
+    updateHeadConfig(pairs);
   }
 
   function setActiveNav() {
@@ -365,6 +556,7 @@
   window.Lacerta = {
     config,
     getConfig,
+    hydrateConfigText,
     initAccordions,
     initScrollSliders,
     initLibraries

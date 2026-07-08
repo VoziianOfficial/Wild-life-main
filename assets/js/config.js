@@ -68,5 +68,45 @@ window.LACERTA_CONFIG = {
   form: {
     endpoint: "contact.php",
     recipientEmail: "hello@lacertamatch.com"
+  },
+
+  replace: {
+    brandNames: [
+      "Lacerta"
+    ],
+
+    legalNames: [
+      "Lacerta Matching Group LLC"
+    ],
+
+    companyIds: [
+      "LCW-US-48291"
+    ],
+
+    phones: [
+      "+1 (555) 018-7426",
+      "+1 (000) 000-0000",
+      "+00 124 234 789"
+    ],
+
+    emails: [
+      "hello@lacertamatch.com",
+      "hello@lacertaexample.com",
+      "example@yourdomain.com"
+    ],
+
+    addresses: [
+      "1842 Evergreen Way, Suite 210",
+      "Portland, OR 97205",
+      "United States",
+      "123 Example Street, Your City",
+      "123 King Street,Melbourne",
+      "123 King Street, Melbourne"
+    ],
+
+    taglines: [
+      "Independent Wildlife Removal Matching Platform",
+      "Independent Matching Platform"
+    ]
   }
 };
