@@ -929,3 +929,215 @@
     min-height: 340px;
   }
 }
+
+
+.lacerta-gallery-mosaic {
+  padding: 96px 0 108px;
+  color: var(--color-cream);
+  background: var(--color-brown-950);
+}
+
+.lacerta-gallery-mosaic__head {
+  max-width: 1120px;
+  margin: 0 auto 58px;
+  text-align: center;
+}
+
+.lacerta-gallery-mosaic__head span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: var(--color-cream);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lacerta-gallery-mosaic__head span::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-yellow);
+}
+
+.lacerta-gallery-mosaic__head h2 {
+  max-width: 1000px;
+  margin: 0 auto;
+  color: var(--color-white);
+  font-family: "Sora", "Space Grotesk", Arial, sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4.65rem);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.lacerta-gallery-mosaic__grid {
+  display: grid;
+  grid-template-columns: 0.72fr 1.22fr 1.3fr;
+  grid-template-rows: 260px 260px;
+  gap: 28px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.lacerta-gallery-tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  color: var(--color-white);
+  background: var(--color-brown-900);
+  isolation: isolate;
+}
+
+.lacerta-gallery-tile--small-top {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.lacerta-gallery-tile--small-bottom {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.lacerta-gallery-tile--large {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.lacerta-gallery-tile--wide {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.lacerta-gallery-tile--half-left {
+  grid-column: 3;
+  grid-row: 2;
+  width: calc(50% - 14px);
+}
+
+.lacerta-gallery-tile--half-right {
+  grid-column: 3;
+  grid-row: 2;
+  width: calc(50% - 14px);
+  justify-self: end;
+}
+
+.lacerta-gallery-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  filter: saturate(0.96) contrast(1.04);
+  transition: transform 760ms ease, filter 260ms ease;
+}
+
+.lacerta-gallery-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(26, 16, 11, 0.02), rgba(26, 16, 11, 0.82));
+  pointer-events: none;
+}
+
+.lacerta-gallery-tile::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 0;
+  z-index: 3;
+  height: 4px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--color-yellow), var(--color-orange));
+  transition: transform 260ms ease;
+}
+
+.lacerta-gallery-tile span {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 24px;
+  z-index: 2;
+  color: var(--color-white);
+  font-family: "Sora", "Space Grotesk", Arial, sans-serif;
+  font-size: clamp(1.12rem, 1.8vw, 1.7rem);
+  font-weight: 950;
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.44);
+}
+
+.lacerta-gallery-tile:hover img {
+  transform: scale(1.08);
+  filter: saturate(1.08) contrast(1.08);
+}
+
+.lacerta-gallery-tile:hover::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 1080px) {
+  .lacerta-gallery-mosaic__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    gap: 22px;
+  }
+
+  .lacerta-gallery-tile,
+  .lacerta-gallery-tile--small-top,
+  .lacerta-gallery-tile--small-bottom,
+  .lacerta-gallery-tile--large,
+  .lacerta-gallery-tile--wide,
+  .lacerta-gallery-tile--half-left,
+  .lacerta-gallery-tile--half-right {
+    grid-column: auto;
+    grid-row: auto;
+    width: auto;
+    justify-self: stretch;
+    min-height: 300px;
+  }
+
+  .lacerta-gallery-tile--large {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .lacerta-gallery-mosaic {
+    padding: 72px 0 78px;
+  }
+
+  .lacerta-gallery-mosaic__head {
+    margin-bottom: 36px;
+    text-align: left;
+  }
+
+  .lacerta-gallery-mosaic__head h2 {
+    font-size: 2.05rem;
+    line-height: 1.08;
+  }
+
+  .lacerta-gallery-mosaic__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .lacerta-gallery-tile,
+  .lacerta-gallery-tile--large {
+    min-height: 250px;
+  }
+
+  .lacerta-gallery-tile span {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    font-size: 1.25rem;
+  }
+}
